@@ -1,0 +1,15 @@
+DECLARE 
+CURSOR workers_cur is 
+      SELECT worker_id, name, surname,age,salary 
+      FROM Workers; 
+workers_rec workers_cur%ROWTYPE;
+BEGIN 
+OPEN workers_cur;
+LOOP
+FETCH workers_cur INTO workers_rec;
+EXIT WHEN workers_cur%NOTFOUND; 
+DBMS_output.put_line(workers_rec.NAME || workers_rec.SALARY);
+
+END LOOP;
+
+END;

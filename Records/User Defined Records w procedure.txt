@@ -1,0 +1,29 @@
+DECLARE 
+TYPE WEAPONS IS RECORD(
+wName VARCHAR2(50),
+wType VARCHAR2(50),
+wOrigin VARCHAR2(50),
+wPrice NUMBER
+);
+weapon1 WEAPONS;
+weapon2 WEAPONS;
+
+PROCEDURE Writer(weapon WEAPONS) IS 
+BEGIN
+DBMS_OUTPUT.PUT_LINE('Weapon Name ' || weapon.wName || ' Weapon Type: ' || weapon.wType || ' Origin: ' || weapon.wOrigin || ' Price: ' || weapon.wPrice);
+
+END;
+
+BEGIN
+weapon1.wName := 'AK-47';
+weapon1.wType := 'Rifle';
+weapon1.wOrigin := 'Russia';
+weapon1.wPrice := 250;
+weapon2.wName := 'M4A4';
+weapon2.wType := 'Rifle';
+weapon2.wOrigin := 'USA';
+weapon2.wPrice := 450;
+
+Writer(weapon1);
+Writer(weapon2);
+END;
