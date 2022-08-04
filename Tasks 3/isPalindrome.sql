@@ -37,10 +37,14 @@ DECLARE
 numx INTEGER; 
  
 BEGIN 
-numx:= 1234567890987654321; 
+numx:= '1234567890987654321'; 
  
 DBMS_OUTPUT.PUT_LINE(isPalindrome(numx)); 
  
+ 
+EXCEPTION 
+    WHEN VALUE_ERROR THEN
+    dbms_output.put_line('Please enter an integer'); 
 END; 
  
  
