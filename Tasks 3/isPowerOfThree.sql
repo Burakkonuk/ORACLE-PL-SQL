@@ -40,7 +40,9 @@ BEGIN
  
 numberx :=  617673396283947; 
 DBMS_OUTPUT.PUT_LINE(isPowerOfThree(numberx)); 
- 
+ EXCEPTION 
+    WHEN VALUE_ERROR THEN
+    dbms_output.put_line('Please enter an integer'); 
 END;
 /
 
