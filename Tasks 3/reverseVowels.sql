@@ -86,7 +86,9 @@ str STRING(100);
 BEGIN 
 str:= 'leetcode'; 
 DBMS_OUTPUT.PUT_LINE(reverseVowels(str)); 
- 
+ EXCEPTION 
+    WHEN VALUE_ERROR THEN
+    dbms_output.put_line('Please enter a string'); 
 END;
 /
 
